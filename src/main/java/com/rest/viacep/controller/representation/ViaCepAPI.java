@@ -7,7 +7,6 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
 
 
 @Api(value = "Api responsavel por manter consultas ao VIA CEP", consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -16,9 +15,9 @@ public interface ViaCepAPI {
     @ApiResponses(value = {
             @ApiResponse(
                     code = 200,
-                    message = "Consulta Message",
+                    message = "Consultando Cep",
                     response = EnderecoRepresentation.class),
             @ApiResponse(code = 403, message = " Não autorizado!")
     })
-    ResponseEntity<EnderecoResponse> obtemCep( String cep);
+    ResponseEntity<EnderecoResponse> obtemCep(String cep);
 }

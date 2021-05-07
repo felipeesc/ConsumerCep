@@ -2,7 +2,6 @@ package com.rest.viacep.controller;
 
 import com.rest.viacep.controller.representation.ViaCepAPI;
 import com.rest.viacep.controller.representation.response.EnderecoResponse;
-import com.rest.viacep.domain.dto.EnderecoDTO;
 import com.rest.viacep.services.service.ViaCepService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -24,7 +23,7 @@ public class ViaCepController implements ViaCepAPI {
     @GetMapping(value = "/getCep/{cep}")
     public ResponseEntity<EnderecoResponse> obtemCep(@PathVariable(name = "cep") String cep) {
         EnderecoResponse enderecoDTO = toRepresentation(cepService.obtemCep(cep));
-        return new ResponseEntity<EnderecoResponse>(enderecoDTO, HttpStatus.OK);
+        return new ResponseEntity<>(enderecoDTO, HttpStatus.OK);
     }
 
 }
