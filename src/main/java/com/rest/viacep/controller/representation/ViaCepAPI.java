@@ -16,7 +16,7 @@ public interface ViaCepAPI {
             @ApiResponse(
                     code = 200,
                     message = "Consultando Cep",
-                    response = EnderecoRepresentation.class),
+                    response = EnderecoResponse.class),
             @ApiResponse(code = 403, message = " Não autorizado!")
     })
     ResponseEntity<EnderecoResponse> obtemCep(String cep);
