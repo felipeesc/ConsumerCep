@@ -1,13 +1,18 @@
 package com.rest.viacep.domain.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.*;
+
+import java.io.Serializable;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @Data
 @Builder
-public class EnderecoDTO {
+@NoArgsConstructor
+public class EnderecoDTO implements Serializable {
     private String cep;
     private String logradouro;
     private String complemento;
