@@ -13,14 +13,14 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @Api(value = "Api responsavel por manter consultas ao VIA CEP", consumes = MediaType.APPLICATION_JSON_VALUE)
 public interface ViaCepAPI {
+
     @ApiOperation(value = "Consulta")
     @ApiResponses(value = {
             @ApiResponse(
                     code = 200,
                     message = "Consultando Cep",
                     response = EnderecoResponse.class),
-            @ApiResponse(code = 403, message = " Não autorizado!")
-    })
+            @ApiResponse(code = 403, message = " Não autorizado!")})
     @ExceptionHandler(ViaCepNotFoundException.class)
     ResponseEntity<EnderecoResponse> obtemCep(String cep);
 }

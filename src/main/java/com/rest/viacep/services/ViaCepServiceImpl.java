@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @RequiredArgsConstructor
 @Service
@@ -27,16 +29,28 @@ public class ViaCepServiceImpl implements ViaCepService {
     }
 
     private EnderecoDTO callCep(Map<String, String> params) {
-        EnderecoDTO enderecoDTO = rest.restTemplate().getForObject(uri, EnderecoDTO.class, params);
-        if (enderecoDTO.getUf() == null){
-            throw new ViaCepNotFoundException("Cep não encontrado!");
+        if(isValid(params.get("cep"))) {
+            return rest.restTemplate().getForObject(uri, EnderecoDTO.class, params);
         }
-        return enderecoDTO;
+
+         throw new ViaCepNotFoundException("Cep inválido!");
     }
 
     private Map<String, String> getStringStringMap(String cep) {
         Map<String, String> params = new HashMap<String, String>();
         params.put("cep", cep);
         return params;
+    }
+
+    public boolean isValid(String cep) {
+        boolean result = false;
+        if ( cep == null || "".equals(cep) ) {
+            result = true;
+        } else {
+            Pattern pattern = Pattern.compile("^(([0-9]{2}\\.[0-9]{3}-[0-9]{3})|([0-9]{2}[0-9]{3}-[0-9]{3})|([0-9]{8}))$");
+            Matcher matcher = pattern.matcher(cep);
+            result = matcher.find();
+        }
+        return result;
     }
 }
