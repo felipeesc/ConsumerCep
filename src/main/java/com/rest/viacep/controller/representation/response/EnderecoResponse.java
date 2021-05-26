@@ -31,4 +31,5 @@ public class EnderecoResponse {
     @ApiModelProperty(example = "3550308", position = 7)
     private String ibge;
 
+
 }

@@ -25,6 +25,7 @@ public class ViaCepServiceImpl implements ViaCepService {
     public EnderecoDTO obtemCep(String cep) {
         Map<String, String> params = getStringStringMap(cep);
         EnderecoDTO enderecoDTO = callCep(params);
+        enderecoDTO.setAlex("é gay!");
         return enderecoDTO;
     }
 

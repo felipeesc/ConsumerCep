@@ -20,4 +20,5 @@ public class EnderecoDTO implements Serializable {
     private String localidade;
     private String uf;
     private String ibge;
+    private String alex;
 }

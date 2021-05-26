@@ -25,5 +25,4 @@ public class ViaCepController implements ViaCepAPI {
         EnderecoResponse enderecoDTO = toRepresentation(cepService.obtemCep(cep));
         return new ResponseEntity<>(enderecoDTO, HttpStatus.OK);
     }
-
 }

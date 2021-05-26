@@ -16,4 +16,6 @@ public class Endereco {
     private String localidade;
     private String uf;
     private String ibge;
+
+
 }

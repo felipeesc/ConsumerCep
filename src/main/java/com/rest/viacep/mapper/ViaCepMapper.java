@@ -17,6 +17,7 @@ public class ViaCepMapper {
                 .complemento(dto.getComplemento())
                 .uf(dto.getUf())
                 .ibge(dto.getIbge())
+                .alex(dto.getAlex())
                 .build();
     }
 }
